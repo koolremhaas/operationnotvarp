@@ -4,22 +4,22 @@ import { useState } from 'react';
 function EventCard({ event, isExpanded, onToggle }: { event: SubEvent; isExpanded: boolean; onToggle: () => void }) {
   return (
     <div
-      className={`border border-border bg-card p-4 cursor-pointer transition-colors hover:border-primary/50 relative
-        ${event.classified ? 'border-l-2 border-l-classified' : ''}`}
+      className={`border border-border/40 bg-card/60 p-4 cursor-pointer transition-all hover:bg-card/80 relative photocopy-border
+        ${event.classified ? 'border-l-2 border-l-classified/50' : ''}`}
       onClick={onToggle}
     >
       {event.classified && (
-        <div className="absolute top-2 right-2 text-[8px] text-classified font-mono tracking-widest opacity-60">
+        <div className="absolute top-2 right-3 stamp-classified text-[7px] py-0.5 px-2 border-[1px]">
           HEMLIG
         </div>
       )}
 
       <div className="flex items-start gap-4">
         {/* Date column */}
-        <div className="flex-shrink-0 w-24 text-right">
-          <div className="text-xs text-primary font-mono">{event.date}</div>
+        <div className="flex-shrink-0 w-20 text-right border-r border-border/30 pr-3">
+          <div className="text-[11px] text-primary/80 font-mono">{event.date}</div>
           {event.time && (
-            <div className="text-[10px] text-muted-foreground font-mono mt-0.5">{event.time}</div>
+            <div className="text-[9px] text-muted-foreground/60 font-mono mt-0.5">{event.time}</div>
           )}
         </div>
 
@@ -27,32 +27,32 @@ function EventCard({ event, isExpanded, onToggle }: { event: SubEvent; isExpande
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
             <span
-              className="inline-block w-2 h-2 flex-shrink-0"
-              style={{ backgroundColor: CATEGORY_COLORS[event.category] }}
+              className="inline-block w-1.5 h-1.5 flex-shrink-0"
+              style={{ backgroundColor: CATEGORY_COLORS[event.category], opacity: 0.7 }}
             />
-            <span className="text-[9px] font-mono tracking-widest text-muted-foreground">
+            <span className="text-[8px] font-mono tracking-[0.2em] text-muted-foreground/70">
               {CATEGORY_LABELS[event.category]}
             </span>
           </div>
 
-          <h3 className="text-sm font-mono font-semibold text-foreground tracking-wide">
+          <h3 className="text-xs font-mono font-medium text-foreground/90 tracking-wide">
             {event.title}
           </h3>
 
-          <div className="text-[10px] text-muted-foreground font-mono mt-1">
-            ◎ {event.location} [{event.coordinates[0].toFixed(4)}, {event.coordinates[1].toFixed(4)}]
+          <div className="text-[9px] text-muted-foreground/50 font-mono mt-1">
+            ◎ {event.location} [{event.coordinates[0].toFixed(3)}, {event.coordinates[1].toFixed(3)}]
           </div>
 
           {isExpanded && (
-            <div className="mt-3 pt-3 border-t border-border">
-              <p className="text-xs text-secondary-foreground leading-relaxed font-body">
+            <div className="mt-3 pt-3 border-t border-border/30">
+              <p className="text-[11px] text-foreground/60 leading-relaxed font-body">
                 {event.description}
               </p>
               {event.sources && event.sources.length > 0 && (
-                <div className="mt-2 flex gap-2 flex-wrap">
+                <div className="mt-2 flex gap-1.5 flex-wrap">
                   {event.sources.map((s) => (
-                    <span key={s} className="text-[9px] font-mono px-2 py-0.5 border border-border text-muted-foreground">
-                      SRC: {s}
+                    <span key={s} className="text-[8px] font-mono px-1.5 py-0.5 border border-border/30 text-muted-foreground/50">
+                      → {s}
                     </span>
                   ))}
                 </div>
@@ -72,29 +72,34 @@ export default function Timeline() {
   const filtered = filter === 'all' ? events : events.filter(e => e.category === filter);
 
   return (
-    <div className="grid-paper min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 py-8">
+    <div className="grid-paper min-h-screen relative">
+      <div className="absolute inset-0 microfiche-glow pointer-events-none" />
+      
+      <div className="max-w-3xl mx-auto px-6 py-10 relative">
         {/* Header */}
-        <div className="mb-8">
-          <div className="text-[10px] text-muted-foreground font-mono tracking-widest mb-2">
-            KRONOLOGISK REDOGÖRELSE
+        <div className="mb-10">
+          <div className="text-[8px] text-muted-foreground/50 font-mono tracking-[0.3em] mb-3">
+            KRONOLOGISK REDOGÖRELSE — HEMLIG HANDLING
           </div>
-          <h2 className="text-lg font-mono font-bold text-foreground tracking-widest">
-            HÄNDELSEFÖRLOPP — OKT/NOV 1982
+          <h2 className="text-base font-mono font-bold text-foreground/90 tracking-[0.15em]">
+            HÄNDELSEFÖRLOPP
           </h2>
-          <div className="w-32 h-px bg-primary mt-2" />
+          <div className="text-[10px] text-muted-foreground/40 font-mono tracking-wider mt-1">
+            OKTOBER — NOVEMBER 1982
+          </div>
+          <div className="w-20 h-px bg-primary/30 mt-3" />
         </div>
 
         {/* Filters */}
-        <div className="flex gap-0 mb-6 border border-border inline-flex">
+        <div className="flex gap-0 mb-8 border border-border/30 inline-flex">
           {(['all', 'observation', 'military-action', 'political', 'investigation'] as const).map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-3 py-1.5 text-[10px] font-mono tracking-wider transition-colors border-r border-border last:border-r-0
+              className={`px-3 py-1 text-[8px] font-mono tracking-[0.2em] transition-colors border-r border-border/30 last:border-r-0
                 ${filter === cat
-                  ? 'bg-primary/10 text-primary'
-                  : 'text-muted-foreground hover:text-foreground'
+                  ? 'bg-primary/8 text-primary/80'
+                  : 'text-muted-foreground/50 hover:text-foreground/60'
                 }`}
             >
               {cat === 'all' ? 'ALLA' : CATEGORY_LABELS[cat]}
@@ -103,7 +108,7 @@ export default function Timeline() {
         </div>
 
         {/* Events */}
-        <div className="space-y-1">
+        <div className="space-y-px">
           {filtered.map((event) => (
             <EventCard
               key={event.id}
@@ -115,10 +120,9 @@ export default function Timeline() {
         </div>
 
         {/* Footer */}
-        <div className="mt-12 pt-4 border-t border-border">
-          <p className="text-[9px] text-muted-foreground font-mono tracking-wider">
-            DATAKÄLLA: SAMMANSTÄLLNING BASERAD PÅ UBÅTSSKYDDSKOMMISSIONEN (SOU 1983:13),
-            GRANSKNINGSKOMMISSIONEN (SOU 2001:85), TUNANDER (2009), GRANDINRAPPORTEN M.FL.
+        <div className="mt-16 pt-4 border-t border-border/20">
+          <p className="text-[8px] text-muted-foreground/30 font-mono tracking-[0.15em] leading-relaxed">
+            SAMMANSTÄLLNING: UBÅTSSKYDDSKOMMISSIONEN (SOU 1983:13) · GRANSKNINGSKOMMISSIONEN (SOU 2001:85) · TUNANDER · GRANDINRAPPORTEN
           </p>
         </div>
       </div>

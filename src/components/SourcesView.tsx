@@ -32,33 +32,35 @@ const sources = [
 
 export default function SourcesView() {
   return (
-    <div className="grid-paper min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 py-8">
-        <div className="mb-8">
-          <div className="text-[10px] text-muted-foreground font-mono tracking-widest mb-2">
+    <div className="grid-paper min-h-screen relative">
+      <div className="absolute inset-0 microfiche-glow pointer-events-none" />
+      
+      <div className="max-w-3xl mx-auto px-6 py-10 relative">
+        <div className="mb-10">
+          <div className="text-[8px] text-muted-foreground/50 font-mono tracking-[0.3em] mb-3">
             REFERENSFÖRTECKNING
           </div>
-          <h2 className="text-lg font-mono font-bold text-foreground tracking-widest">
+          <h2 className="text-base font-mono font-bold text-foreground/90 tracking-[0.15em]">
             KÄLLOR & MATERIAL
           </h2>
-          <div className="w-32 h-px bg-primary mt-2" />
+          <div className="w-20 h-px bg-primary/30 mt-3" />
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-8">
           {sources.map((group) => (
             <div key={group.category}>
-              <h3 className="text-[10px] font-mono tracking-widest text-accent mb-3 border-b border-border pb-1">
+              <h3 className="text-[9px] font-mono tracking-[0.25em] text-accent/60 mb-3 pb-1 border-b border-border/20">
                 {group.category}
               </h3>
-              <div className="space-y-1">
+              <div className="space-y-px">
                 {group.items.map((item) => (
-                  <div key={item.title} className="border border-border bg-card p-3 hover:border-primary/30 transition-colors">
-                    <h4 className="text-xs font-mono font-semibold text-foreground tracking-wide">
+                  <div key={item.title} className="border border-border/25 bg-card/40 p-3 hover:bg-card/60 transition-all photocopy-border">
+                    <h4 className="text-[11px] font-mono font-medium text-foreground/75 tracking-wide">
                       {item.title}
                     </h4>
-                    <div className="flex items-center gap-3 mt-1">
-                      <span className="text-[10px] text-primary font-mono">{item.author}</span>
-                      <span className="text-[10px] text-muted-foreground font-body">— {item.note}</span>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="text-[9px] text-primary/60 font-mono">{item.author}</span>
+                      <span className="text-[9px] text-muted-foreground/35 font-body">— {item.note}</span>
                     </div>
                   </div>
                 ))}
