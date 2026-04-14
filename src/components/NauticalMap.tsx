@@ -6,25 +6,25 @@ import 'leaflet/dist/leaflet.css';
 const createIcon = (color: string) => L.divIcon({
   className: '',
   html: `<div style="
-    width: 8px; height: 8px;
+    width: 7px; height: 7px;
     background: ${color};
-    border: 1px solid hsl(42, 20%, 60%);
+    border: 1px solid hsl(42, 20%, 55%);
     transform: rotate(45deg);
-    opacity: 0.8;
+    opacity: 0.75;
   "></div>`,
-  iconSize: [8, 8],
-  iconAnchor: [4, 4],
+  iconSize: [7, 7],
+  iconAnchor: [3.5, 3.5],
 });
 
 const locationIcon = L.divIcon({
   className: '',
   html: `<div style="
-    width: 6px; height: 6px;
-    border: 1px solid hsl(160, 30%, 40%);
+    width: 5px; height: 5px;
+    border: 1px solid hsl(42, 35%, 50%);
     background: transparent;
   "></div>`,
-  iconSize: [6, 6],
-  iconAnchor: [3, 3],
+  iconSize: [5, 5],
+  iconAnchor: [2.5, 2.5],
 });
 
 export default function NauticalMap() {
@@ -45,7 +45,6 @@ export default function NauticalMap() {
       attribution: '&copy; OSM',
     }).addTo(map);
 
-    // Location markers
     Object.values(LOCATIONS).forEach((loc) => {
       const marker = L.marker(loc.coordinates, { icon: locationIcon }).addTo(map);
       marker.bindPopup(`
@@ -58,7 +57,6 @@ export default function NauticalMap() {
       `);
     });
 
-    // Event markers
     events.forEach((event) => {
       const marker = L.marker(event.coordinates, {
         icon: createIcon(CATEGORY_COLORS[event.category]),
@@ -69,7 +67,7 @@ export default function NauticalMap() {
             ${event.date} ${event.time || ''}
           </div>
           <div style="font-weight: 600; font-size: 11px; letter-spacing: 0.05em; margin-bottom: 4px;">${event.title}</div>
-          <p style="font-size: 10px; line-height: 1.5; opacity: 0.6;">${event.description}</p>
+          <p style="font-size: 10px; line-height: 1.5; opacity: 0.6;">${event.description.substring(0, 200)}...</p>
         </div>
       `);
     });
@@ -77,11 +75,21 @@ export default function NauticalMap() {
     // Mälsten circle
     L.circle(LOCATIONS.malsten.coordinates, {
       radius: 800,
-      color: 'hsl(160, 30%, 40%)',
-      fillColor: 'hsl(160, 30%, 40%)',
+      color: 'hsl(42, 35%, 50%)',
+      fillColor: 'hsl(42, 35%, 50%)',
       fillOpacity: 0.03,
       weight: 0.5,
       dashArray: '4 6',
+    }).addTo(map);
+
+    // Märsgarns hamn highlight
+    L.circle(LOCATIONS.marsgarn.coordinates, {
+      radius: 400,
+      color: 'hsl(25, 40%, 40%)',
+      fillColor: 'hsl(25, 40%, 40%)',
+      fillOpacity: 0.04,
+      weight: 0.5,
+      dashArray: '3 5',
     }).addTo(map);
 
     mapInstanceRef.current = map;
