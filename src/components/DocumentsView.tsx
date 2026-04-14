@@ -2,10 +2,10 @@ const documents = [
   {
     id: 'ubk-1983',
     title: 'Ubåtsskyddskommissionen (SOU 1983:13)',
-    type: 'KOMMISSIONSRAPPORT',
+    type: 'KOMMISSION',
     year: '1983',
     classification: 'OFFENTLIG',
-    description: 'Sven Anderssons kommission. Fastställde att främmande undervattensverksamhet ägt rum. Pekade mot Sovjetunionen.',
+    description: 'Sven Anderssons kommission. Fastslog att främmande undervattensverksamhet ägt rum. Pekade mot Sovjetunionen.',
   },
   {
     id: 'grandin',
@@ -18,7 +18,7 @@ const documents = [
   {
     id: 'sou-2001',
     title: 'Granskningskommissionen (SOU 2001:85)',
-    type: 'KOMMISSIONSRAPPORT',
+    type: 'KOMMISSION',
     year: '2001',
     classification: 'OFFENTLIG',
     description: 'Ambassadör Rolf Ekéus granskning. Ifrågasatte delar av den tidigare Sovjettillskrivningen. Perspektiv på ubåtsfrågan i fyra delar.',
@@ -26,7 +26,7 @@ const documents = [
   {
     id: 'tunander-2009',
     title: 'Tunander — Ubåtsfrågan: sanningen finns i betraktarens öga',
-    type: 'AKADEMISK ARTIKEL',
+    type: 'ARTIKEL',
     year: '2009',
     classification: 'OFFENTLIG',
     description: 'Ola Tunanders analys av de politiska dimensionerna. Pekar på att samma amiraler som begränsade vapeninsatsen senare hävdade sovjetiskt ursprung.',
@@ -34,14 +34,14 @@ const documents = [
   {
     id: 'tis-1986',
     title: 'Tidskrift i Sjöväsendet nr 3/1986',
-    type: 'FACKTIDSKRIFT',
+    type: 'TIDSKRIFT',
     year: '1986',
     classification: 'OFFENTLIG',
     description: 'Marinens egen tidskrift med samtida redogörelser och analyser av ubåtskränkningarna.',
   },
   {
     id: 'kkrva-2009',
-    title: 'Kungl Krigsvetenskapsakademiens Handlingar och Tidskrift 4/2009',
+    title: 'Kungl Krigsvetenskapsakademiens Handlingar 4/2009',
     type: 'AKADEMISK',
     year: '2009',
     classification: 'OFFENTLIG',
@@ -51,42 +51,44 @@ const documents = [
 
 export default function DocumentsView() {
   return (
-    <div className="grid-paper min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 py-8">
-        <div className="mb-8">
-          <div className="text-[10px] text-muted-foreground font-mono tracking-widest mb-2">
+    <div className="grid-paper min-h-screen relative">
+      <div className="absolute inset-0 microfiche-glow pointer-events-none" />
+      
+      <div className="max-w-3xl mx-auto px-6 py-10 relative">
+        <div className="mb-10">
+          <div className="text-[8px] text-muted-foreground/50 font-mono tracking-[0.3em] mb-3">
             ARKIV — PRIMÄRKÄLLOR
           </div>
-          <h2 className="text-lg font-mono font-bold text-foreground tracking-widest">
+          <h2 className="text-base font-mono font-bold text-foreground/90 tracking-[0.15em]">
             DOKUMENT & RAPPORTER
           </h2>
-          <div className="w-32 h-px bg-primary mt-2" />
+          <div className="w-20 h-px bg-primary/30 mt-3" />
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-px">
           {documents.map((doc) => (
             <div
               key={doc.id}
-              className={`border border-border bg-card p-4 hover:border-primary/30 transition-colors
-                ${doc.classification === 'HEMLIG' ? 'border-l-2 border-l-classified' : ''}`}
+              className={`border border-border/30 bg-card/50 p-4 hover:bg-card/70 transition-all photocopy-border
+                ${doc.classification === 'HEMLIG' ? 'border-l-2 border-l-classified/40' : ''}`}
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-[9px] font-mono tracking-widest text-muted-foreground border border-border px-2 py-0.5">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-[8px] font-mono tracking-[0.2em] text-muted-foreground/40 border border-border/20 px-1.5 py-0.5">
                       {doc.type}
                     </span>
-                    <span className="text-[9px] font-mono text-muted-foreground">{doc.year}</span>
+                    <span className="text-[9px] font-mono text-muted-foreground/30">{doc.year}</span>
                     {doc.classification === 'HEMLIG' && (
-                      <span className="text-[9px] font-mono tracking-widest text-classified">
+                      <span className="text-[8px] font-mono tracking-[0.2em] text-classified/50">
                         ■ HEMLIG
                       </span>
                     )}
                   </div>
-                  <h3 className="text-sm font-mono font-semibold text-foreground tracking-wide mt-1">
+                  <h3 className="text-xs font-mono font-medium text-foreground/80 tracking-wide mt-1">
                     {doc.title}
                   </h3>
-                  <p className="text-xs text-secondary-foreground font-body leading-relaxed mt-2">
+                  <p className="text-[10px] text-foreground/40 font-body leading-relaxed mt-2">
                     {doc.description}
                   </p>
                 </div>

@@ -69,6 +69,8 @@ export default {
         sonar: "hsl(var(--sonar-ping))",
         radar: "hsl(var(--radar-sweep))",
         microfiche: "hsl(var(--microfiche-glow))",
+        "aged-paper": "hsl(var(--aged-paper))",
+        "film-grain": "hsl(var(--film-grain))",
       },
       borderRadius: {
         lg: "var(--radius)",

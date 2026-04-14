@@ -5,7 +5,7 @@ export interface SubEvent {
   title: string;
   description: string;
   location: string;
-  coordinates: [number, number]; // [lat, lng]
+  coordinates: [number, number];
   category: 'observation' | 'military-action' | 'political' | 'investigation';
   sources?: string[];
   classified?: boolean;
@@ -139,11 +139,12 @@ export const events: SubEvent[] = [
   },
 ];
 
+// Muted, archival colors — no magenta, no bright red
 export const CATEGORY_COLORS: Record<SubEvent['category'], string> = {
-  'observation': 'hsl(180, 60%, 45%)',
-  'military-action': 'hsl(0, 70%, 50%)',
-  'political': 'hsl(35, 80%, 55%)',
-  'investigation': 'hsl(120, 60%, 50%)',
+  'observation': 'hsl(160, 30%, 40%)',
+  'military-action': 'hsl(8, 45%, 38%)',
+  'political': 'hsl(38, 50%, 45%)',
+  'investigation': 'hsl(140, 25%, 38%)',
 };
 
 export const CATEGORY_LABELS: Record<SubEvent['category'], string> = {
