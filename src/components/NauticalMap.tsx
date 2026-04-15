@@ -41,8 +41,15 @@ export default function NauticalMap() {
       attributionControl: true,
     });
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OSM',
+    // Dark base layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; CartoDB',
+    }).addTo(map);
+
+    // Nautical chart overlay (OpenSeaMap)
+    L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenSeaMap',
+      opacity: 0.7,
     }).addTo(map);
 
     Object.values(LOCATIONS).forEach((loc) => {
