@@ -318,6 +318,17 @@ export const events: SubEvent[] = [
     category: 'observation',
     sources: ['SOU 2001:85'],
   },
+  // --- SOU 1995:135 ---
+  {
+    id: 'evt-025',
+    date: '1995-12-20',
+    title: 'SOU 1995:135 — Ubåtskommissionen rapporterar',
+    description: 'Ubåtskommissionen (ordf. Hans G. Forsberg) överlämnar sin rapport. Bekräftar att ubåt passerat Danziger Gatt 12 oktober 1982 baserat på hydrofonindikation vid Mälsten. Bedömer att signalspaningsindikationer (PQ-observationer) är för osäkra för slutsatser. Konstaterar att "komprimerad kavitation" (typljudet) delvis orsakats av simmande mink. Kan inte uttala sig om nationalitet — varken för Hårsfjärden eller andra incidenter. Anna Christensens reservation: observationsmaterialet håller inte, företagsbedömningarna håller inte, den skapade bilden av systematiska kränkningar vilar inte på hållbar grund.',
+    location: 'Stockholm',
+    coordinates: [59.33, 18.07],
+    category: 'investigation',
+    sources: ['SOU 1995:135'],
+  },
 ];
 
 // Warm archival colors — matching page palette, no cyan
