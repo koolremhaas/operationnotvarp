@@ -5,6 +5,7 @@ const sources = [
       { title: 'SOU 1983:13 — Ubåtsskyddskommissionen', author: 'Sven Andersson (ordf.)', note: 'Primär statlig utredning. Fastslog sovjetisk tillskrivning.' },
       { title: 'SOU 2001:85 — Perspektiv på ubåtsfrågan', author: 'Rolf Ekéus (ordf.)', note: 'Granskningskommissionen. Del 1–4. Ifrågasatte tidigare slutsatser.' },
       { title: 'Grandinrapporten', author: 'Grandin m.fl.', note: 'Teknisk rapport. Dykritningar, spektrogram, sondanalys.' },
+      { title: 'SOU 1995:135 — Ubåtsfrågan 1981–1994', author: 'Hans G. Forsberg (ordf.), Ubåtskommissionen', note: 'Utvärdering av undervattenskränkningar 1981–94. Bekräftar Mälsten-hydrofonindikation men ifrågasätter signalspaning och nationalitetsbedömning. Anna Christensens reservation: observationsmaterialet håller inte.' },
     ],
   },
   {
