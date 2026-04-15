@@ -115,20 +115,22 @@ export default function Timeline() {
           <div className="w-20 h-px bg-primary/30 mt-3" />
         </div>
 
-        <div className="flex gap-0 mb-8 border border-border/30 inline-flex">
-          {(['all', 'observation', 'military-action', 'political', 'investigation'] as const).map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-3 py-1 text-[8px] font-mono tracking-[0.2em] transition-colors border-r border-border/30 last:border-r-0
-                ${filter === cat
-                  ? 'bg-primary/8 text-primary/80'
-                  : 'text-muted-foreground/50 hover:text-foreground/60'
-                }`}
-            >
-              {cat === 'all' ? 'ALLA' : CATEGORY_LABELS[cat]}
-            </button>
-          ))}
+        <div className="flex justify-end mb-8">
+          <div className="flex gap-0 border border-border/30 inline-flex">
+            {(['all', 'observation', 'military-action', 'political', 'investigation'] as const).map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`px-3 py-1 text-[8px] font-mono tracking-[0.2em] transition-colors border-r border-border/30 last:border-r-0
+                  ${filter === cat
+                    ? 'bg-primary/8 text-primary/80'
+                    : 'text-muted-foreground/50 hover:text-foreground/60'
+                  }`}
+              >
+                {cat === 'all' ? 'ALLA' : CATEGORY_LABELS[cat]}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="space-y-px">
