@@ -10,7 +10,7 @@ const sources = [
   {
     category: 'AKADEMISKA KÄLLOR',
     items: [
-      { title: 'Ubåtsfrågan: sanningen finns i betraktarens öga', author: 'Ola Tunander (2009)', note: 'Kritisk analys. Pekar på NATO-koppling.' },
+      { title: 'Ubåtsfrågan — sanningen finns i betraktarens öga', author: 'Bengt Gustafsson (2005)', note: 'Rapport av generalen Bengt Gustafsson. Kritisk genomgång av ubåtsfrågan.' },
       { title: 'Kungl Krigsvetenskapsakademiens Handlingar 4/2009', author: 'Diverse', note: 'Krigsvetenskaplig analys.' },
       { title: 'FULLTEXT02 (akademisk uppsats)', author: 'Okänd', note: 'Akademisk granskning av ubåtsfrågan.' },
     ],
