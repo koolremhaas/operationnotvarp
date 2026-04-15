@@ -101,7 +101,7 @@ export default function Timeline() {
     <div className="grid-paper min-h-screen relative">
       <div className="absolute inset-0 microfiche-glow pointer-events-none" />
 
-      <div className="max-w-3xl mx-auto px-6 py-10 relative">
+      <div className="max-w-5xl mx-auto px-6 py-10 relative">
         <div className="mb-10">
           <div className="text-[8px] text-muted-foreground/50 font-mono tracking-[0.3em] mb-3">
             KRONOLOGISK REDOGÖRELSE — HEMLIG HANDLING
@@ -115,39 +115,44 @@ export default function Timeline() {
           <div className="w-20 h-px bg-primary/30 mt-3" />
         </div>
 
-        <div className="flex justify-end mb-8">
-          <div className="flex gap-0 border border-border/30 inline-flex">
-            {(['all', 'observation', 'military-action', 'political', 'investigation'] as const).map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`px-3 py-1 text-[8px] font-mono tracking-[0.2em] transition-colors border-r border-border/30 last:border-r-0
-                  ${filter === cat
-                    ? 'bg-primary/8 text-primary/80'
-                    : 'text-muted-foreground/50 hover:text-foreground/60'
-                  }`}
-              >
-                {cat === 'all' ? 'ALLA' : CATEGORY_LABELS[cat]}
-              </button>
-            ))}
+        <div className="flex gap-6">
+          <div className="flex-1 min-w-0">
+            <div className="space-y-px">
+              {filtered.map((event) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  isExpanded={expandedId === event.id}
+                  onToggle={() => setExpandedId(expandedId === event.id ? null : event.id)}
+                />
+              ))}
+            </div>
+
+            <div className="mt-16 pt-4 border-t border-border/20">
+              <p className="text-[8px] text-muted-foreground/30 font-mono tracking-[0.15em] leading-relaxed">
+                SAMMANSTÄLLNING: SOU 1983:13 · SOU 2001:85 · TUNANDER · GRANDINRAPPORTEN · PEJDELL-JANSSON · FOI · MAGASINET FILTER
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div className="space-y-px">
-          {filtered.map((event) => (
-            <EventCard
-              key={event.id}
-              event={event}
-              isExpanded={expandedId === event.id}
-              onToggle={() => setExpandedId(expandedId === event.id ? null : event.id)}
-            />
-          ))}
-        </div>
-
-        <div className="mt-16 pt-4 border-t border-border/20">
-          <p className="text-[8px] text-muted-foreground/30 font-mono tracking-[0.15em] leading-relaxed">
-            SAMMANSTÄLLNING: SOU 1983:13 · SOU 2001:85 · TUNANDER · GRANDINRAPPORTEN · PEJDELL-JANSSON · FOI · MAGASINET FILTER
-          </p>
+          <div className="flex-shrink-0 w-28 sticky top-24 self-start">
+            <div className="text-[7px] text-muted-foreground/40 font-mono tracking-[0.3em] mb-2">FILTER</div>
+            <div className="flex flex-col border border-border/30">
+              {(['all', 'observation', 'military-action', 'political', 'investigation'] as const).map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setFilter(cat)}
+                  className={`px-2 py-1.5 text-[8px] font-mono tracking-[0.15em] transition-colors border-b border-border/30 last:border-b-0 text-left
+                    ${filter === cat
+                      ? 'bg-primary/8 text-primary/80'
+                      : 'text-muted-foreground/50 hover:text-foreground/60'
+                    }`}
+                >
+                  {cat === 'all' ? 'ALLA' : CATEGORY_LABELS[cat]}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
