@@ -46,13 +46,23 @@ export default function NauticalMap() {
       attribution: '&copy; CartoDB',
     }).addTo(map);
 
-    // EMODnet Bathymetry — depth contours
+    // EMODnet Bathymetry — color-shaded depth (darker blue = deeper)
+    L.tileLayer.wms('https://ows.emodnet-bathymetry.eu/wms', {
+      layers: 'emodnet:mean_depth',
+      format: 'image/png',
+      transparent: true,
+      attribution: '&copy; EMODnet Bathymetry',
+      opacity: 0.25,
+      styles: 'emodnet:mean_depth',
+    } as any).addTo(map);
+
+    // EMODnet depth contour lines (subtle)
     L.tileLayer.wms('https://ows.emodnet-bathymetry.eu/wms', {
       layers: 'emodnet:contours',
       format: 'image/png',
       transparent: true,
       attribution: '&copy; EMODnet Bathymetry',
-      opacity: 0.4,
+      opacity: 0.15,
     } as any).addTo(map);
 
     // Nautical chart overlay (OpenSeaMap)
