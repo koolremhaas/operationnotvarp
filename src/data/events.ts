@@ -27,6 +27,9 @@ export const LOCATIONS = {
   jungfrufjarden: { name: 'Jungfrufjärden', coordinates: [58.95, 18.20] as [number, number] },
   namndo: { name: 'Nämndö', coordinates: [59.03, 18.40] as [number, number] },
   vitsgarnssund: { name: 'Vitsgarnssund', coordinates: [59.0601, 18.1546] as [number, number] },
+  liso: { name: 'Lisö', coordinates: [58.917, 17.75] as [number, number] },
+  huvudholmen: { name: 'Stora Huvudholmen', coordinates: [58.875, 18.055] as [number, number] },
+  varsnasfjarden: { name: 'Varsnäsfjärden', coordinates: [58.865, 18.04] as [number, number] },
 } as const;
 
 export const MAP_CENTER: [number, number] = [58.90, 18.15];
