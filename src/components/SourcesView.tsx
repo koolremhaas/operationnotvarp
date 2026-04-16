@@ -3,17 +3,18 @@ const sources = [
     category: 'STATLIGA UTREDNINGAR',
     items: [
       { title: 'SOU 1983:13 — Ubåtsskyddskommissionen', author: 'Sven Andersson (ordf.)', note: 'Primär statlig utredning. Fastslog sovjetisk tillskrivning.' },
+      { title: 'SOU 1995:135 — Ubåtsfrågan 1981–1994', author: 'Hans G. Forsberg (ordf.), Ubåtskommissionen', note: 'Utvärdering av undervattenskränkningar 1981–94. Bekräftar Mälsten-hydrofonindikation men ifrågasätter signalspaning och nationalitetsbedömning. Anna Christensens reservation: observationsmaterialet håller inte.' },
       { title: 'SOU 2001:85 — Perspektiv på ubåtsfrågan', author: 'Rolf Ekéus (ordf.)', note: 'Granskningskommissionen. Del 1–4. Ifrågasatte tidigare slutsatser.' },
       { title: 'Grandinrapporten', author: 'Grandin m.fl.', note: 'Teknisk rapport. Dykritningar, spektrogram, sondanalys.' },
-      { title: 'SOU 1995:135 — Ubåtsfrågan 1981–1994', author: 'Hans G. Forsberg (ordf.), Ubåtskommissionen', note: 'Utvärdering av undervattenskränkningar 1981–94. Bekräftar Mälsten-hydrofonindikation men ifrågasätter signalspaning och nationalitetsbedömning. Anna Christensens reservation: observationsmaterialet håller inte.' },
     ],
   },
   {
     category: 'AKADEMISKA KÄLLOR',
     items: [
       { title: 'Ubåtsfrågan — sanningen finns i betraktarens öga', author: 'Bengt Gustafsson (2005)', note: 'Rapport av generalen Bengt Gustafsson. Kritisk genomgång av ubåtsfrågan.' },
-      { title: 'Kungl Krigsvetenskapsakademiens Handlingar 4/2009', author: 'Diverse', note: 'Krigsvetenskaplig analys.' },
-      { title: 'FULLTEXT02 (akademisk uppsats)', author: 'Okänd', note: 'Akademisk granskning av ubåtsfrågan.' },
+      { title: 'Kanske en ubåtskritik (KKrVA Handlingar 4/2009)', author: 'Olof Santesson', note: 'Recension av Mossbergs "I mörka vatten". Kritiserar brist på hårda bevis i NATO-tesen. Påpekar att officerare öppnat sig för kritik genom bestämda påståenden utan entydiga bevis.' },
+      { title: 'I mörka vatten — Hur svenska folket fördes bakom ljuset', author: 'Mathias Mossberg (2009)', note: 'Fd huvudsekreterare i Ekéus-utredningen. Hävdar att det var NATO, inte WP, som kränkte. Bygger på Weinberger-intervjun och Blind Mans Bluff.' },
+      { title: 'Ubåtsincidenterna på 1980-talet — En jämförande studie', author: 'Nils Bihari-Andersson (2025)', note: 'Historia 61-90. Akademisk uppsats, Skärhamn.' },
     ],
   },
   {

@@ -46,6 +46,15 @@ export default function NauticalMap() {
       attribution: '&copy; CartoDB',
     }).addTo(map);
 
+    // EMODnet Bathymetry — depth contours
+    L.tileLayer.wms('https://ows.emodnet-bathymetry.eu/wms', {
+      layers: 'emodnet:contours',
+      format: 'image/png',
+      transparent: true,
+      attribution: '&copy; EMODnet Bathymetry',
+      opacity: 0.4,
+    } as any).addTo(map);
+
     // Nautical chart overlay (OpenSeaMap)
     L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenSeaMap',
@@ -97,6 +106,16 @@ export default function NauticalMap() {
       fillOpacity: 0.04,
       weight: 0.5,
       dashArray: '3 5',
+    }).addTo(map);
+
+    // Vitsgarnssund highlight
+    L.circle(LOCATIONS.vitsgarnssund.coordinates, {
+      radius: 300,
+      color: 'hsl(0, 70%, 50%)',
+      fillColor: 'hsl(0, 70%, 50%)',
+      fillOpacity: 0.05,
+      weight: 0.5,
+      dashArray: '2 4',
     }).addTo(map);
 
     mapInstanceRef.current = map;
