@@ -108,6 +108,16 @@ export default function NauticalMap() {
       dashArray: '3 5',
     }).addTo(map);
 
+    // Vitsgarnssund highlight
+    L.circle(LOCATIONS.vitsgarnssund.coordinates, {
+      radius: 300,
+      color: 'hsl(0, 70%, 50%)',
+      fillColor: 'hsl(0, 70%, 50%)',
+      fillOpacity: 0.05,
+      weight: 0.5,
+      dashArray: '2 4',
+    }).addTo(map);
+
     mapInstanceRef.current = map;
 
     return () => {
