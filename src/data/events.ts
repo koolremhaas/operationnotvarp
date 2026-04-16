@@ -26,6 +26,7 @@ export const LOCATIONS = {
   oxnoudde: { name: 'Oxnöudde', coordinates: [59.00, 18.10] as [number, number] },
   jungfrufjarden: { name: 'Jungfrufjärden', coordinates: [58.95, 18.20] as [number, number] },
   namndo: { name: 'Nämndö', coordinates: [59.03, 18.40] as [number, number] },
+  vitsgarnssund: { name: 'Vitsgarnssund', coordinates: [59.0601, 18.1546] as [number, number] },
 } as const;
 
 export const MAP_CENTER: [number, number] = [58.90, 18.15];
@@ -218,6 +219,17 @@ export const events: SubEvent[] = [
     sources: ['Pejdell-Jansson', 'Magasinet Filter'],
     classified: true,
     imageKey: 'sparkluster',
+  },
+  {
+    id: 'evt-016b',
+    date: '1982-11-01',
+    title: 'Bottenspår Vitsgarnssund — Märsgarn/Furuholmen',
+    description: 'Bottenundersökning i Vitsgarnssund, det trånga sundet mellan Märsgarn och Furuholmen nära Berga. Pejdell-Janssons rapport (H 346, bilaga 3) redovisar sökning i området vid Stångudden och Västeruddberg. Sjökortsavdrag M 7109 i skala 1:2500. Sundets ringa bredd gör det ytterst svårt att manövrera en ubåt — än mindre en moderubåt med miniubåt inom en kabellängd. Rapporten noterar: "I detta område finns inget att redovisa" — men en teburk av utländskt ursprung samt en avbruten mast lämnades in för undersökning.',
+    location: 'Vitsgarnssund',
+    coordinates: [59.0601, 18.1546],
+    category: 'investigation',
+    sources: ['Pejdell-Jansson H 346', 'Bilaga 3'],
+    classified: true,
   },
   {
     id: 'evt-017',

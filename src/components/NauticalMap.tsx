@@ -46,6 +46,15 @@ export default function NauticalMap() {
       attribution: '&copy; CartoDB',
     }).addTo(map);
 
+    // EMODnet Bathymetry — depth contours
+    L.tileLayer.wms('https://ows.emodnet-bathymetry.eu/wms', {
+      layers: 'emodnet:contours',
+      format: 'image/png',
+      transparent: true,
+      attribution: '&copy; EMODnet Bathymetry',
+      opacity: 0.4,
+    } as any).addTo(map);
+
     // Nautical chart overlay (OpenSeaMap)
     L.tileLayer('https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenSeaMap',
