@@ -30,6 +30,11 @@ export const LOCATIONS = {
   liso: { name: 'Lisö', coordinates: [58.917, 17.75] as [number, number] },
   huvudholmen: { name: 'Stora Huvudholmen', coordinates: [58.875, 18.055] as [number, number] },
   varsnasfjarden: { name: 'Varsnäsfjärden', coordinates: [58.865, 18.04] as [number, number] },
+  nattaro: { name: 'Nåttarö kanal', coordinates: [58.853, 17.95] as [number, number] },
+  ornö_sv: { name: 'SV Ornö (S Björkö)', coordinates: [58.99, 18.32] as [number, number] },
+  mysingen: { name: 'Mysingen', coordinates: [58.93, 18.07] as [number, number] },
+  landsort: { name: 'Landsort', coordinates: [58.74, 17.86] as [number, number] },
+  oxelosund: { name: 'Oxelösund/Ljungskär', coordinates: [58.66, 17.20] as [number, number] },
 } as const;
 
 export const MAP_CENTER: [number, number] = [58.90, 18.15];
