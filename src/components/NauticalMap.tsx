@@ -41,30 +41,28 @@ export default function NauticalMap() {
       attributionControl: true,
     });
 
-    // Dark land/base layer (no water — we'll paint water from bathymetry)
+    // Dark base layer
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; CartoDB',
     }).addTo(map);
 
-    // GEBCO Bathymetry — fully shaded depth raster (darker blue = deeper).
-    // GEBCO's "shaded relief" style gives proper hypsometric tints, much better
-    // than EMODnet's transparent contour fill at this zoom.
-    L.tileLayer.wms('https://wms.gebco.net/mapserv', {
-      layers: 'GEBCO_LATEST',
+    // EMODnet Bathymetry — color-shaded depth (darker blue = deeper)
+    L.tileLayer.wms('https://ows.emodnet-bathymetry.eu/wms', {
+      layers: 'emodnet:mean_depth',
       format: 'image/png',
       transparent: true,
-      attribution: '&copy; GEBCO Compilation Group',
-      opacity: 0.55,
-      version: '1.3.0',
+      attribution: '&copy; EMODnet Bathymetry',
+      opacity: 0.25,
+      styles: 'emodnet:mean_depth',
     } as any).addTo(map);
 
-    // EMODnet depth contour lines (very subtle — adds nautical-chart feel)
+    // EMODnet depth contour lines (subtle)
     L.tileLayer.wms('https://ows.emodnet-bathymetry.eu/wms', {
       layers: 'emodnet:contours',
       format: 'image/png',
       transparent: true,
       attribution: '&copy; EMODnet Bathymetry',
-      opacity: 0.18,
+      opacity: 0.15,
     } as any).addTo(map);
 
     // Nautical chart overlay (OpenSeaMap — sjömärken, kablar)
