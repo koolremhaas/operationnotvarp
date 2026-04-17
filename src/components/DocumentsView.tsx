@@ -287,6 +287,7 @@ export default function DocumentsView() {
           {exhibits.map((exhibit, index) => {
             const isSectionBreak = exhibit.id === 'sparkluster';
             const isOtherSection = exhibit.id === 'transponder';
+            const isGrandinSection = exhibit.id === 'grandin-handelse';
             return (
               <div key={exhibit.id}>
                 {isSectionBreak && (
@@ -301,6 +302,19 @@ export default function DocumentsView() {
                     <div className="text-[9px] font-mono tracking-[0.2em] text-accent/60 mb-4 border-b border-border/20 pb-2">
                       SIGNALER, UTRUSTNING & TERMINOLOGI
                     </div>
+                  </div>
+                )}
+                {isGrandinSection && (
+                  <div className="mb-8 mt-10">
+                    <div className="text-[9px] font-mono tracking-[0.2em] text-accent/60 mb-4 border-b border-border/20 pb-2">
+                      GRANDINRAPPORTEN — ANALYSGRUPPENS BILAGOR
+                    </div>
+                    <p className="text-[10px] text-foreground/40 font-body leading-relaxed mb-4 max-w-xl">
+                      Utdrag ur den s.k. Grandinrapporten (Analysgrupp Ubåtsincident, hösten 1982). 
+                      Rapporten skissar händelseförlopp och materielförslag inför försvarsbeslutet 1982/87. 
+                      Här syns hur 3-ubåtshypotesen byggdes på antaganden och hur fasta signalspaningssystem 
+                      inte var i drift under själva incidenten.
+                    </p>
                   </div>
                 )}
                 <div
