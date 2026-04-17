@@ -18,6 +18,9 @@ import illustrativSkillnadImg from '@/assets/illustrativ-skillnad.png';
 import dykarskiss2Img from '@/assets/dykarskiss-2.png';
 import sparkluster2Img from '@/assets/sparkluster-danziger-gatt-2.png';
 import vitsgarnsundImg from '@/assets/vitsgarnsund-foto.png';
+import vitsgarnsund2Img from '@/assets/vitsgarnsund-2.png';
+import { useState } from 'react';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 const exhibits = [
   // --- DYKRAPPORTEN: BILAGOR ---
@@ -100,6 +103,14 @@ const exhibits = [
     description: 'Historisk bild av Vitsgarnssund, det smala sundet nära Berga. Bilden visar hur litet och fullproppat detta sund är. Här skall man alltså få plats med en miniubåt och en moderubåt inom en kabellängd. Pejdell-Janssons rapport: "I detta område finns inget att redovisa."',
     classification: 'OFFENTLIG',
     source: 'Historisk bild',
+  },
+  {
+    id: 'vitsgarnsund-sjokort',
+    title: 'Vitsgarnssund — sjökortsavdrag M 7109 (skala 1:12500)',
+    image: vitsgarnsund2Img,
+    description: 'Sjökortsavdrag över Vitsgarnssund mellan Stångudden och Västerudden. Det smala sundet med tydliga kabelledningar (Tk Krledn) markerade. Sökföretagen genomfördes i de skuggade områdena. Trots sundets begränsade dimensioner — och kabelnätets täthet — är det här som en moderubåt och miniubåt påstods ha opererat tillsammans inom en kabellängd.',
+    classification: 'HEMLIG',
+    source: 'Sjökortsavdrag M 7109',
   },
 
   // --- DANZIGER GATT SPÅRKLUSTER ---
@@ -188,6 +199,8 @@ const exhibits = [
 ];
 
 export default function DocumentsView() {
+  const [zoomed, setZoomed] = useState<{ src: string; title: string } | null>(null);
+
   return (
     <div className="grid-paper min-h-screen relative">
       <div className="absolute inset-0 microfiche-glow pointer-events-none" />
@@ -252,14 +265,22 @@ export default function DocumentsView() {
                       {exhibit.source}
                     </div>
 
-                    <div className="border border-border/20 bg-background/60 p-2 mb-3">
+                    <button
+                      type="button"
+                      onClick={() => setZoomed({ src: exhibit.image, title: exhibit.title })}
+                      className="block w-full border border-border/20 bg-background/60 p-2 mb-3 cursor-zoom-in hover:border-primary/40 transition-colors group relative"
+                      aria-label={`Förstora ${exhibit.title}`}
+                    >
                       <img
                         src={exhibit.image}
                         alt={exhibit.title}
                         className="w-full max-h-80 object-contain microfiche-img"
                         loading="lazy"
                       />
-                    </div>
+                      <span className="absolute top-1 right-1 text-[8px] font-mono tracking-wider text-muted-foreground/40 group-hover:text-primary/70 transition-colors bg-background/70 px-1.5 py-0.5">
+                        ⊕ FÖRSTORA
+                      </span>
+                    </button>
 
                     <p className="text-[10px] text-foreground/50 font-body leading-relaxed">
                       {exhibit.description}
@@ -278,15 +299,6 @@ export default function DocumentsView() {
           </div>
           <div className="space-y-1">
             <a
-              href="https://magasinetfilter.se/granskning/undervattenslage/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block border border-border/20 bg-card/30 p-3 hover:bg-card/50 transition-all"
-            >
-              <span className="text-[10px] font-mono text-primary/70">→ Magasinet Filter — Undervattensläge</span>
-              <span className="block text-[9px] text-muted-foreground/40 font-body mt-0.5">Detaljerad granskning med alla bottenspår, dykrapporter och Manas bevisfilm</span>
-            </a>
-            <a
               href="https://magasinetfilter.se/wp-content/uploads/2018/03/C.-Sökföretag-Hårsfjärden-PejdellJansson-kopia.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -304,9 +316,36 @@ export default function DocumentsView() {
               <span className="text-[10px] font-mono text-primary/70">→ FOI Analysrapport — Amalia m.m.</span>
               <span className="block text-[9px] text-muted-foreground/40 font-body mt-0.5">3.47-bandet visade sig vara motorseglaren Amalia</span>
             </a>
+            <a
+              href="https://magasinetfilter.se/granskning/undervattenslage/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block border border-border/20 bg-card/30 p-3 hover:bg-card/50 transition-all"
+            >
+              <span className="text-[10px] font-mono text-primary/70">→ Magasinet Filter — Undervattensläge</span>
+              <span className="block text-[9px] text-muted-foreground/40 font-body mt-0.5">Detaljerad granskning med alla bottenspår, dykrapporter och Manas bevisfilm</span>
+            </a>
           </div>
         </div>
       </div>
+
+      {/* Zoom Dialog */}
+      <Dialog open={!!zoomed} onOpenChange={(open) => !open && setZoomed(null)}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] w-auto p-2 bg-background border-border">
+          {zoomed && (
+            <div className="flex flex-col gap-2">
+              <div className="text-[10px] font-mono tracking-[0.15em] text-foreground/70 px-2 pt-1">
+                {zoomed.title}
+              </div>
+              <img
+                src={zoomed.src}
+                alt={zoomed.title}
+                className="max-w-full max-h-[85vh] object-contain mx-auto"
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
