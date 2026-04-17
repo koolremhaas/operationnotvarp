@@ -1,0 +1,3 @@
+image: node:20
+command: npm ci && npm run build
+public: dist
