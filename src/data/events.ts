@@ -67,9 +67,9 @@ export const events: SubEvent[] = [
   {
     id: 'evt-002b',
     date: '1982-10-04',
-    time: '~19:30',
-    title: 'Patrullbåten Mode anfaller vid Farfars grund',
-    description: 'Patrullbåten Mode fick hydrofonkontakt och anföll med sjunkbomber vid Farfars grund i farleden väster om Sandhamn.',
+    time: '18:45–19:00',
+    title: 'Patrullbåten Mode — varningseld + 2 sjunkbomber vid Farfars grund',
+    description: 'Patrullbåten Mode fick hydrofonkontakt (hög doppler) vid Farfars grund i farleden väster om Sandhamn. Först insattes varningseld, därefter fälldes 2 sjunkbomber. Föregånget av en serie observationer samma kväll: vågsvall vid Stora Hästskär (18:05), helikopter-FM-eko vid Länsman (18:10) och Furuskatholmen (18:11), samt optisk observation av "ubåtstorn" vid Sandön (18:15–18:20). Sammantagen bedömning enligt Grandinrapporten: ubåt.',
     location: 'Sandhamn',
     coordinates: [59.28, 18.91],
     category: 'military-action',
