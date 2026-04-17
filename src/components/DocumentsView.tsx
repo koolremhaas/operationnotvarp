@@ -299,15 +299,6 @@ export default function DocumentsView() {
           </div>
           <div className="space-y-1">
             <a
-              href="https://magasinetfilter.se/granskning/undervattenslage/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block border border-border/20 bg-card/30 p-3 hover:bg-card/50 transition-all"
-            >
-              <span className="text-[10px] font-mono text-primary/70">→ Magasinet Filter — Undervattensläge</span>
-              <span className="block text-[9px] text-muted-foreground/40 font-body mt-0.5">Detaljerad granskning med alla bottenspår, dykrapporter och Manas bevisfilm</span>
-            </a>
-            <a
               href="https://magasinetfilter.se/wp-content/uploads/2018/03/C.-Sökföretag-Hårsfjärden-PejdellJansson-kopia.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -325,9 +316,36 @@ export default function DocumentsView() {
               <span className="text-[10px] font-mono text-primary/70">→ FOI Analysrapport — Amalia m.m.</span>
               <span className="block text-[9px] text-muted-foreground/40 font-body mt-0.5">3.47-bandet visade sig vara motorseglaren Amalia</span>
             </a>
+            <a
+              href="https://magasinetfilter.se/granskning/undervattenslage/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block border border-border/20 bg-card/30 p-3 hover:bg-card/50 transition-all"
+            >
+              <span className="text-[10px] font-mono text-primary/70">→ Magasinet Filter — Undervattensläge</span>
+              <span className="block text-[9px] text-muted-foreground/40 font-body mt-0.5">Detaljerad granskning med alla bottenspår, dykrapporter och Manas bevisfilm</span>
+            </a>
           </div>
         </div>
       </div>
+
+      {/* Zoom Dialog */}
+      <Dialog open={!!zoomed} onOpenChange={(open) => !open && setZoomed(null)}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] w-auto p-2 bg-background border-border">
+          {zoomed && (
+            <div className="flex flex-col gap-2">
+              <div className="text-[10px] font-mono tracking-[0.15em] text-foreground/70 px-2 pt-1">
+                {zoomed.title}
+              </div>
+              <img
+                src={zoomed.src}
+                alt={zoomed.title}
+                className="max-w-full max-h-[85vh] object-contain mx-auto"
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
