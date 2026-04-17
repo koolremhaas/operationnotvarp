@@ -19,6 +19,12 @@ import dykarskiss2Img from '@/assets/dykarskiss-2.png';
 import sparkluster2Img from '@/assets/sparkluster-danziger-gatt-2.png';
 import vitsgarnsundImg from '@/assets/vitsgarnsund-foto.png';
 import vitsgarnsund2Img from '@/assets/vitsgarnsund-2.png';
+import grandinSystemImg from '@/assets/grandin-systemoversikt.jpg';
+import grandinHandelseImg from '@/assets/grandin-handelseforlopp.jpg';
+import grandinUbatsnatImg from '@/assets/grandin-ubatsnat.jpg';
+import grandinMalstenImg from '@/assets/grandin-malsten-12okt.jpg';
+import grandinMinlinjerImg from '@/assets/grandin-minlinjer-storning.jpg';
+import grandinPqSisImg from '@/assets/grandin-pq-sis.jpg';
 import { useState } from 'react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 
@@ -196,6 +202,55 @@ const exhibits = [
     classification: 'OFFENTLIG',
     source: 'SOU 2001:85',
   },
+  // --- GRANDINRAPPORTEN ---
+  {
+    id: 'grandin-handelse',
+    title: 'Grandinrapporten — Analysgruppens händelseförlopp (3-ubåtshypotesen)',
+    image: grandinHandelseImg,
+    description: 'Bilaga 2, sid 73. Analysgruppens skissade händelsekedja: tre ubåtar in samtidigt — Ubåt 1 (avledning Sandhamn), Ubåt 2 (huvudmål Hårsfjärden via Landsort), Ubåt 3 (Bråviken/Oxelösund). Texten exemplifierar hur en hel narrativ struktur byggdes på antaganden om koordinerat sovjetiskt företag — utan att hydrofonbevisen senare höll. Två "oklara punkter" medges: varför kvarstannar ubåt utanför Hårsfjärden 7/10, och varför finns en ubåt utanför Mälsten 12/10?',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 2, sid 73',
+  },
+  {
+    id: 'grandin-malsten',
+    title: 'Grandinrapporten — analysen av Mälsten 12 oktober',
+    image: grandinMalstenImg,
+    description: 'Sid 91. "1752 Möjlig ub rapporterad från akustiken vid MÄLSTEN. 1800 Bedöms ubåt, fart 1-2 knop." Banden skickades till FOA för analys. Senare visade FOI (2007) att inspelningen var av motorseglaren Amalia. Bedömningen "ubåt kvarstår" för 12/10 stod kvar trots att övriga MÄLSTEN-kontakter inte kunde verifieras vid efteranalys.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 2, sid 91',
+  },
+  {
+    id: 'grandin-minlinjer',
+    title: 'Grandinrapporten — minlinjer som spaningsorgan + avsiktliga störningar',
+    image: grandinMinlinjerImg,
+    description: 'Sid 105. "Avsiktlig störning kan utlösa eldgivning mot icke existerande mål." Rapporten medger osäkerhet om indikationer var sanna eller falska, och att det inte fastslagits om avsiktliga störningar förekommit. Detta öppnar två tolkningsmöjligheter som rapporten inte väger mot varandra: utländsk störning, eller egna systembrister i nyligen utlagda mineringar.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 3, sid 104–105',
+  },
+  {
+    id: 'grandin-ubatsnat',
+    title: 'Grandinrapporten — ubåtsnät & täckmantel "torpednät"',
+    image: grandinUbatsnatImg,
+    description: 'Sid 110–111. Förslag att utveckla nät för "instängning och infångning" av ubåtar. Sekretess: "För att lyckas 100% med denna typ av verksamhet torde stor sekretess vara nödvändig. Näten bör därför döpas till torpednät. Användning vid torpedprov kan motiveras och även vara av ett visst värde." En sällsynt explicit dokumentation av medveten täckmantel-användning i officiell rapport.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 3, sid 110–111',
+  },
+  {
+    id: 'grandin-pqsis',
+    title: 'Grandinrapporten — PQ/SIS: fasta system var inte påslagna',
+    image: grandinPqSisImg,
+    description: 'Sid 116. "I samband med Hårsfjärdenincidenten deltog endast fartygsburna system." De fasta signalspaningssystemen — som annars kunde ha gett oberoende verifiering av främmande ubåtsradar — var avstängda. Förstärker FRA:s senare påpekande (Pär Kettis brev) att marinens egen primitiva utrustning användes som "bevis". Rapporten medger också att rr-katalogen saknade ingångsvärden för identifiering.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 3, sid 116–117',
+  },
+  {
+    id: 'grandin-system',
+    title: 'Grandinrapporten — systemöversikt FB 82-87',
+    image: grandinSystemImg,
+    description: 'Sid 70. Sammanställning av materielsystem som skulle finnas operativa vid försvarsbeslutsperiodens slut: lätta ubåtsjaktflygplan (CESSNA 402 leasing), patrullbåtar med ELMA-incidentsjunkbomb, robotbåt typ Stockholm med släphydrofon, Hkp 4 med torped 422, ny medeltung helikopter med LASER+IR+hydrofonbojar. Hårsfjärdenincidenten användes som politisk hävstång för en förstärkning på ca 200 Mkr utöver programplanen.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 1.3.2, sid 70',
+  },
 ];
 
 export default function DocumentsView() {
@@ -232,6 +287,7 @@ export default function DocumentsView() {
           {exhibits.map((exhibit, index) => {
             const isSectionBreak = exhibit.id === 'sparkluster';
             const isOtherSection = exhibit.id === 'transponder';
+            const isGrandinSection = exhibit.id === 'grandin-handelse';
             return (
               <div key={exhibit.id}>
                 {isSectionBreak && (
@@ -246,6 +302,19 @@ export default function DocumentsView() {
                     <div className="text-[9px] font-mono tracking-[0.2em] text-accent/60 mb-4 border-b border-border/20 pb-2">
                       SIGNALER, UTRUSTNING & TERMINOLOGI
                     </div>
+                  </div>
+                )}
+                {isGrandinSection && (
+                  <div className="mb-8 mt-10">
+                    <div className="text-[9px] font-mono tracking-[0.2em] text-accent/60 mb-4 border-b border-border/20 pb-2">
+                      GRANDINRAPPORTEN — ANALYSGRUPPENS BILAGOR
+                    </div>
+                    <p className="text-[10px] text-foreground/40 font-body leading-relaxed mb-4 max-w-xl">
+                      Utdrag ur den s.k. Grandinrapporten (Analysgrupp Ubåtsincident, hösten 1982). 
+                      Rapporten skissar händelseförlopp och materielförslag inför försvarsbeslutet 1982/87. 
+                      Här syns hur 3-ubåtshypotesen byggdes på antaganden och hur fasta signalspaningssystem 
+                      inte var i drift under själva incidenten.
+                    </p>
                   </div>
                 )}
                 <div
