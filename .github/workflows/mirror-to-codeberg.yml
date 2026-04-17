@@ -1,0 +1,17 @@
+name: Mirror to Codeberg
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror to Codeberg
+        uses: cssnr/mirror-repository-action@v1
+        with:
+          host: https://codeberg.org
+          username: koolremhaas     # ← ÄNDRA DETTA
+          repo: operationnotvarp                     # ← ÄNDRA DETTA
+          password: ${{ secrets.CODEBERG_TOKEN }}
