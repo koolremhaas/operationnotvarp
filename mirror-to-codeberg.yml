@@ -8,17 +8,14 @@ jobs:
   mirror:
     runs-on: ubuntu-latest
     steps:
-      # ← Detta var det som saknades!
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # Behövs för att mirror ska fungera bra
+          fetch-depth: 0
 
       - name: Mirror to Codeberg
-        uses: cssnr/mirror-repository-action@v1
+        uses: yesolutions/mirror-repository@v1
         with:
-          host: https://codeberg.org
-          username: koolremhaas
-          repo: operationnotvarp
-          password: ${{ secrets.CODEBERG_TOKEN }}
-          create: true
+          source_repo: ${{ github.repository }}
+          target_repo: https://codeberg.org/koolremhaas/operationnotvarp.git
+          target_token: ${{ secrets.CODEBERG_TOKEN }}
