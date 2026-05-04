@@ -25,6 +25,12 @@ import grandinUbatsnatImg from '@/assets/grandin-ubatsnat.jpg';
 import grandinMalstenImg from '@/assets/grandin-malsten-12okt.jpg';
 import grandinMinlinjerImg from '@/assets/grandin-minlinjer-storning.jpg';
 import grandinPqSisImg from '@/assets/grandin-pq-sis.jpg';
+import grandinUbatsnatKonstrImg from '@/assets/grandin-ubatsnat-konstruktion.jpg';
+import grandinVapenDispImg from '@/assets/grandin-vapen-disposition.jpg';
+import grandinTrafftabellImg from '@/assets/grandin-trafftabell.jpg';
+import grandinSjbInsatser1Img from '@/assets/grandin-sjb-insatser-1.jpg';
+import grandinSjbInsatser2Img from '@/assets/grandin-sjb-insatser-2.jpg';
+import grandinCmMallistaImg from '@/assets/grandin-cm-mallista.jpg';
 import { useState } from 'react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 
@@ -251,6 +257,55 @@ const exhibits = [
     classification: 'HEMLIG',
     source: 'Grandinrapporten Bilaga 1.3.2, sid 70',
   },
+  // --- GRANDINRAPPORTEN — BILAGA 3.3 VAPEN (sid 121–171) ---
+  {
+    id: 'grandin-vapen-disp',
+    title: 'Bilaga 3.3 VAPEN — innehållsförteckning',
+    image: grandinVapenDispImg,
+    description: 'Vapenbilagans disposition (sid 123). Granskningen omfattar både genomförda insatser (minor M7, sjunkbomber sjb 11/33/51) och icke utnyttjade vapen (torped 421/422, ELMA, AU-raket). Strukturen visar bilagans dubbla syfte: dokumentera misslyckandena och motivera framtida materielanskaffningar.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 3.3, sid 123',
+  },
+  {
+    id: 'grandin-ubatsnat-konstr',
+    title: '"Torpednätens" tekniska konstruktion',
+    image: grandinUbatsnatKonstrImg,
+    description: 'Sid 121 — Underbilaga 7.2. Detaljerad konstruktion: maskstorlek 30×30 cm av 3 mm nylon, lik (15 mm diameter med 5 mm stålkärna), bojar som håller nätet uppe, sänken som drar ner det, förankringar mot land/ankare, släpplinor vid viss dragkraft. "Mot små ubåtar skall näten gå ända till botten." Bekräftar att det aldrig handlade om torpednät utan om infångningssystem för undervattensfarkoster.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 3.3, sid 121',
+  },
+  {
+    id: 'grandin-trafftabell',
+    title: 'Träffsannolikhet sjunkbomb — 6 till 20 procent',
+    image: grandinTrafftabellImg,
+    description: 'Sid 136. Marinens egen beräkning av sannolikheten att slå ut en ubåt: 1 hkp + 6 sjb 51 ger 6 %, bästa scenariot (1 hkp + 2 patrullbåtar + 32 sjb 33) ger 20 %. Förutsätter dessutom 100 % funktionssannolikhet och optimalt djup. Vid djup över 30 m halveras värdena. En matematisk obduktion av varför 47 fällda sjunkbomber under Hårsfjärden inte gav någon dokumenterad verkan.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 3.3, sid 136',
+  },
+  {
+    id: 'grandin-sjb-insatser-1',
+    title: 'Sjunkbombsinsatser 1–5 (1–3 oktober 1982)',
+    image: grandinSjbInsatser1Img,
+    description: 'Underbilaga 2 sid 1. Sammanställning av insatser 1–5: hkp Y64/Y71/Y47, ftg Mode. Sjb-typ, antal, läge, bottendjup, djupinställning och indikation tabellförda. Insats 5 (10-03 14:40 Skramsösund/Guldbådan): "MALIN detonerade ej / Sjb 51 detonerade efter 18 min". Detaljnivån visar vapenbilagans noggrannhet — och hur uppstart av operationen präglades av tekniska klick.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 3.3, Underbilaga 2 sid 1 (sid 150)',
+  },
+  {
+    id: 'grandin-sjb-insatser-2',
+    title: 'Sjunkbombsinsatser 6–9 (4–5 oktober 1982)',
+    image: grandinSjbInsatser2Img,
+    description: 'Underbilaga 2 sid 2. Insats 7 (10-04 16:15–16:28 Furuskälen): 6 sjb 11 från Y70/Y71 + 4 sjb 33 från Väktaren — "Ekot kvar efter fällning". Insats 8 (10-04 20:00 Mode/Farfars grund): 2 sjb 33 vid hf-kontakt. Insats 9 (10-05 12:15–12:43 Länsman/Näsudden): kombinerad insats Väktaren + Y69/Y70, "tre av bomberna detonerade ej". Källan för faktajusteringen av Mode-händelsen.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 3.3, Underbilaga 2 sid 2 (sid 151)',
+  },
+  {
+    id: 'grandin-cm-mallista',
+    title: 'CM 1981 — mållista över ubåtar marinen saknade signalbibliotek för',
+    image: grandinCmMallistaImg,
+    description: 'CM-skrivelse FI Vap H 502:6258 (1981-04-30), bilaga sid 1. Förteckning över främmande örlogsmål: WP-ubåtar (Golf II, Whiskey Long Bin, Tango, Foxtrot, Zulu IV, Romeo, Whiskey, Quebec) och NATO-ubåtar (Type 205/206, Delfinen, Näkken, Sokken). Ett år före Hårsfjärden konstaterar marinen att den saknar inspelade hydrofoneffekter av just dessa måltyper. Förklarar varför nationalitetsbestämning via akustisk signatur inte var möjlig i oktober 1982.',
+    classification: 'HEMLIG',
+    source: 'Grandinrapporten Bilaga 4.3 (CM FI Vap H 502:6258, sid 165)',
+  },
 ];
 
 export default function DocumentsView() {
@@ -288,6 +343,7 @@ export default function DocumentsView() {
             const isSectionBreak = exhibit.id === 'sparkluster';
             const isOtherSection = exhibit.id === 'transponder';
             const isGrandinSection = exhibit.id === 'grandin-handelse';
+            const isVapenSection = exhibit.id === 'grandin-vapen-disp';
             return (
               <div key={exhibit.id}>
                 {isSectionBreak && (
@@ -314,6 +370,20 @@ export default function DocumentsView() {
                       Rapporten skissar händelseförlopp och materielförslag inför försvarsbeslutet 1982/87. 
                       Här syns hur 3-ubåtshypotesen byggdes på antaganden och hur fasta signalspaningssystem 
                       inte var i drift under själva incidenten.
+                    </p>
+                  </div>
+                )}
+                {isVapenSection && (
+                  <div className="mb-8 mt-10">
+                    <div className="text-[9px] font-mono tracking-[0.2em] text-accent/60 mb-4 border-b border-border/20 pb-2">
+                      BILAGA 3.3 — VAPEN: TEKNISK OBDUKTION
+                    </div>
+                    <p className="text-[10px] text-foreground/40 font-body leading-relaxed mb-4 max-w-xl">
+                      Marinens egen detaljgranskning av varför vapeninsatserna inte gav verkan. 23 sjunkbombsinsatser, 
+                      47 fällda bomber, 7 blindgångare, 5 minsprängningar — och ingen sänkt eller upptvingad ubåt. 
+                      Beräknad träffsannolikhet 6–20 %. Bilagan är skarpare än den politiska slutsatsen och innehåller 
+                      både konstruktionsritningar för "torpednäten" och CM:s egen mållista över ubåtar man saknade 
+                      signalbibliotek för redan 1981.
                     </p>
                   </div>
                 )}
