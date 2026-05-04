@@ -4,6 +4,8 @@ export interface SubEvent {
   time?: string;
   title: string;
   description: string;
+  /** Optional bullet-list version of description, rendered as "—" prefixed lines for multi-step events */
+  descriptionLines?: string[];
   location: string;
   coordinates: [number, number];
   category: 'observation' | 'military-action' | 'political' | 'investigation';
