@@ -343,6 +343,7 @@ export default function DocumentsView() {
             const isSectionBreak = exhibit.id === 'sparkluster';
             const isOtherSection = exhibit.id === 'transponder';
             const isGrandinSection = exhibit.id === 'grandin-handelse';
+            const isVapenSection = exhibit.id === 'grandin-vapen-disp';
             return (
               <div key={exhibit.id}>
                 {isSectionBreak && (
@@ -369,6 +370,20 @@ export default function DocumentsView() {
                       Rapporten skissar händelseförlopp och materielförslag inför försvarsbeslutet 1982/87. 
                       Här syns hur 3-ubåtshypotesen byggdes på antaganden och hur fasta signalspaningssystem 
                       inte var i drift under själva incidenten.
+                    </p>
+                  </div>
+                )}
+                {isVapenSection && (
+                  <div className="mb-8 mt-10">
+                    <div className="text-[9px] font-mono tracking-[0.2em] text-accent/60 mb-4 border-b border-border/20 pb-2">
+                      BILAGA 3.3 — VAPEN: TEKNISK OBDUKTION
+                    </div>
+                    <p className="text-[10px] text-foreground/40 font-body leading-relaxed mb-4 max-w-xl">
+                      Marinens egen detaljgranskning av varför vapeninsatserna inte gav verkan. 23 sjunkbombsinsatser, 
+                      47 fällda bomber, 7 blindgångare, 5 minsprängningar — och ingen sänkt eller upptvingad ubåt. 
+                      Beräknad träffsannolikhet 6–20 %. Bilagan är skarpare än den politiska slutsatsen och innehåller 
+                      både konstruktionsritningar för "torpednäten" och CM:s egen mållista över ubåtar man saknade 
+                      signalbibliotek för redan 1981.
                     </p>
                   </div>
                 )}
