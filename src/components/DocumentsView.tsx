@@ -25,6 +25,12 @@ import grandinUbatsnatImg from '@/assets/grandin-ubatsnat.jpg';
 import grandinMalstenImg from '@/assets/grandin-malsten-12okt.jpg';
 import grandinMinlinjerImg from '@/assets/grandin-minlinjer-storning.jpg';
 import grandinPqSisImg from '@/assets/grandin-pq-sis.jpg';
+import grandinUbatsnatKonstrImg from '@/assets/grandin-ubatsnat-konstruktion.jpg';
+import grandinVapenDispImg from '@/assets/grandin-vapen-disposition.jpg';
+import grandinTrafftabellImg from '@/assets/grandin-trafftabell.jpg';
+import grandinSjbInsatser1Img from '@/assets/grandin-sjb-insatser-1.jpg';
+import grandinSjbInsatser2Img from '@/assets/grandin-sjb-insatser-2.jpg';
+import grandinCmMallistaImg from '@/assets/grandin-cm-mallista.jpg';
 import { useState } from 'react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 
