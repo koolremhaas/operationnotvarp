@@ -62,12 +62,12 @@ function EventCard({
       <div className="flex items-start gap-4">
         {/* Left rail: TNR + date + time */}
         <div className="flex-shrink-0 w-24 text-right border-r border-border/30 pr-3">
-          <div className="text-[9px] text-muted-foreground/50 font-mono tracking-[0.15em] mb-1">
+          <div className="text-[9px] text-muted-foreground/75 font-mono tracking-[0.15em] mb-1">
             TNR {tnr}
           </div>
-          <div className="text-[12px] text-primary/80 font-mono">{event.date}</div>
+          <div className="text-[12px] text-primary font-mono">{event.date}</div>
           {event.time && (
-            <div className="text-[10px] text-muted-foreground/60 font-mono mt-0.5">{event.time}</div>
+            <div className="text-[10px] text-muted-foreground/85 font-mono mt-0.5">{event.time}</div>
           )}
         </div>
 
@@ -78,19 +78,19 @@ function EventCard({
               className="inline-block text-[10px] font-mono tracking-[0.18em] px-1.5 py-px border"
               style={{
                 color: catColor,
-                borderColor: `${catColor}55`,
-                backgroundColor: `${catColor}0d`,
+                borderColor: `${catColor}99`,
+                backgroundColor: `${catColor}1f`,
               }}
             >
               [{CATEGORY_CODE[event.category]}] {CATEGORY_LABELS[event.category]}
             </span>
           </div>
 
-          <h3 className="text-[13px] font-mono font-medium text-foreground/90 tracking-wide leading-snug">
+          <h3 className="text-[13px] font-mono font-medium text-foreground tracking-wide leading-snug">
             {event.title}
           </h3>
 
-          <div className="text-[9px] text-muted-foreground/50 font-mono mt-1.5">
+          <div className="text-[9px] text-muted-foreground/75 font-mono mt-1.5">
             ◎ {event.location} [{event.coordinates[0].toFixed(3)}, {event.coordinates[1].toFixed(3)}]
           </div>
 
@@ -101,7 +101,7 @@ function EventCard({
                   {event.descriptionLines.map((line, i) => (
                     <li
                       key={i}
-                      className="text-[12px] text-foreground/65 font-body leading-[1.65] before:content-['—'] before:mr-2 before:text-muted-foreground/50"
+                      className="text-[12px] text-foreground/90 font-body leading-[1.65] before:content-['—'] before:mr-2 before:text-muted-foreground/70"
                     >
                       {line}
                     </li>
@@ -109,7 +109,7 @@ function EventCard({
                 </ul>
               ) : null}
 
-              <p className="text-[12px] text-foreground/65 leading-[1.65] font-body">
+              <p className="text-[12px] text-foreground/90 leading-[1.65] font-body">
                 {event.description}
               </p>
 
@@ -121,7 +121,7 @@ function EventCard({
                     className="w-full max-h-64 object-contain microfiche-img"
                     loading="lazy"
                   />
-                  <div className="text-[9px] text-muted-foreground/45 font-mono mt-1 tracking-wider">
+                  <div className="text-[9px] text-muted-foreground/70 font-mono mt-1 tracking-wider">
                     {image.caption}
                   </div>
                 </div>
@@ -132,7 +132,7 @@ function EventCard({
                   {event.sources.map((s) => (
                     <span
                       key={s}
-                      className="text-[9px] font-mono px-1.5 py-0.5 border border-border/30 text-muted-foreground/55"
+                      className="text-[9px] font-mono px-1.5 py-0.5 border border-border/40 text-muted-foreground/80"
                     >
                       → {s}
                     </span>
