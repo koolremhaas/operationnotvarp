@@ -101,7 +101,7 @@ function EventCard({
                   {event.descriptionLines.map((line, i) => (
                     <li
                       key={i}
-                      className="text-[12px] text-foreground/65 font-body leading-[1.65] before:content-['—'] before:mr-2 before:text-muted-foreground/50"
+                      className="text-[12px] text-foreground/90 font-body leading-[1.65] before:content-['—'] before:mr-2 before:text-muted-foreground/70"
                     >
                       {line}
                     </li>
@@ -109,7 +109,7 @@ function EventCard({
                 </ul>
               ) : null}
 
-              <p className="text-[12px] text-foreground/65 leading-[1.65] font-body">
+              <p className="text-[12px] text-foreground/90 leading-[1.65] font-body">
                 {event.description}
               </p>
 
@@ -121,7 +121,7 @@ function EventCard({
                     className="w-full max-h-64 object-contain microfiche-img"
                     loading="lazy"
                   />
-                  <div className="text-[9px] text-muted-foreground/45 font-mono mt-1 tracking-wider">
+                  <div className="text-[9px] text-muted-foreground/70 font-mono mt-1 tracking-wider">
                     {image.caption}
                   </div>
                 </div>
@@ -132,13 +132,15 @@ function EventCard({
                   {event.sources.map((s) => (
                     <span
                       key={s}
-                      className="text-[9px] font-mono px-1.5 py-0.5 border border-border/30 text-muted-foreground/55"
+                      className="text-[9px] font-mono px-1.5 py-0.5 border border-border/40 text-muted-foreground/80"
                     >
                       → {s}
                     </span>
                   ))}
                 </div>
               )}
+            </div>
+          )}
             </div>
           )}
         </div>
