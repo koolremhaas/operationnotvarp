@@ -141,8 +141,6 @@ function EventCard({
               )}
             </div>
           )}
-            </div>
-          )}
         </div>
       </div>
     </div>
