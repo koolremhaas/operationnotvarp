@@ -324,7 +324,7 @@ export default function DocumentsView() {
             DOKUMENT & BEVISNING
           </h2>
           <div className="w-20 h-px bg-primary/30 mt-3" />
-          <p className="text-[10px] text-foreground/40 font-body mt-3 leading-relaxed max-w-xl">
+          <p className="text-[12px] text-foreground/85 font-body mt-3 leading-[1.65] max-w-xl">
             Nedan presenteras bilagor ur Pejdell-Janssons sammanfattande bottenundersökningsrapport (H 346, 1983-03-06), 
             kompletterat med analysunderlag och historiska fotografier. Rapporten var hemligstämplad och nådde aldrig 
             Ubåtsskyddskommissionens politiker.
