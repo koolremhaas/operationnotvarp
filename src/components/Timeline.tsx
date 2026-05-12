@@ -78,19 +78,19 @@ function EventCard({
               className="inline-block text-[10px] font-mono tracking-[0.18em] px-1.5 py-px border"
               style={{
                 color: catColor,
-                borderColor: `${catColor}55`,
-                backgroundColor: `${catColor}0d`,
+                borderColor: `${catColor}99`,
+                backgroundColor: `${catColor}1f`,
               }}
             >
               [{CATEGORY_CODE[event.category]}] {CATEGORY_LABELS[event.category]}
             </span>
           </div>
 
-          <h3 className="text-[13px] font-mono font-medium text-foreground/90 tracking-wide leading-snug">
+          <h3 className="text-[13px] font-mono font-medium text-foreground tracking-wide leading-snug">
             {event.title}
           </h3>
 
-          <div className="text-[9px] text-muted-foreground/50 font-mono mt-1.5">
+          <div className="text-[9px] text-muted-foreground/75 font-mono mt-1.5">
             ◎ {event.location} [{event.coordinates[0].toFixed(3)}, {event.coordinates[1].toFixed(3)}]
           </div>
 
