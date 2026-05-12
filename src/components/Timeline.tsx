@@ -62,12 +62,12 @@ function EventCard({
       <div className="flex items-start gap-4">
         {/* Left rail: TNR + date + time */}
         <div className="flex-shrink-0 w-24 text-right border-r border-border/30 pr-3">
-          <div className="text-[9px] text-muted-foreground/50 font-mono tracking-[0.15em] mb-1">
+          <div className="text-[9px] text-muted-foreground/75 font-mono tracking-[0.15em] mb-1">
             TNR {tnr}
           </div>
-          <div className="text-[12px] text-primary/80 font-mono">{event.date}</div>
+          <div className="text-[12px] text-primary font-mono">{event.date}</div>
           {event.time && (
-            <div className="text-[10px] text-muted-foreground/60 font-mono mt-0.5">{event.time}</div>
+            <div className="text-[10px] text-muted-foreground/85 font-mono mt-0.5">{event.time}</div>
           )}
         </div>
 
