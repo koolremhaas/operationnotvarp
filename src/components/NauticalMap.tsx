@@ -170,6 +170,23 @@ export default function NauticalMap() {
         </span>
       </div>
 
+      {/* Quick navigation */}
+      <div className="absolute top-4 right-4 z-[1000] flex flex-col gap-1">
+        {([
+          ['HÅRSFJÄRDEN', MAP_CENTER, MAP_ZOOM],
+          ['SANDHAMN', LOCATIONS.sandhamn.coordinates, 12],
+          ['HELA SKÄRGÅRDEN', [59.05, 18.45], 9],
+        ] as [string, [number, number], number][]).map(([label, c, z]) => (
+          <button
+            key={label}
+            onClick={() => mapInstanceRef.current?.flyTo(c, z)}
+            className="bg-card/90 border border-border/40 px-3 py-1 text-[10px] font-mono tracking-wider text-foreground/80 hover:text-primary hover:border-primary/60"
+          >
+            [{label}]
+          </button>
+        ))}
+      </div>
+
       <div ref={mapRef} className="h-full w-full" />
     </div>
   );
