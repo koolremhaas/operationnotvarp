@@ -1,4 +1,5 @@
 import dykarskissImg from '@/assets/dykarskiss.png';
+import periskopKartaAsset from '@/assets/periskop-harsfjarden.png.asset.json';
 import sparklusterImg from '@/assets/sparkluster-danziger-gatt.png';
 import hkp4Img from '@/assets/hkp4-ritning.jpeg';
 import spektrogramImg from '@/assets/spektrogram-signal.jpg';
@@ -305,6 +306,14 @@ const exhibits = [
     description: 'CM-skrivelse FI Vap H 502:6258 (1981-04-30), bilaga sid 1. Förteckning över främmande örlogsmål: WP-ubåtar (Golf II, Whiskey Long Bin, Tango, Foxtrot, Zulu IV, Romeo, Whiskey, Quebec) och NATO-ubåtar (Type 205/206, Delfinen, Näkken, Sokken). Ett år före Hårsfjärden konstaterar marinen att den saknar inspelade hydrofoneffekter av just dessa måltyper. Förklarar varför nationalitetsbestämning via akustisk signatur inte var möjlig i oktober 1982.',
     classification: 'HEMLIG',
     source: 'Grandinrapporten Bilaga 4.3 (CM FI Vap H 502:6258, sid 165)',
+  },
+  {
+    id: 'periskop-harsfjarden-karta',
+    title: 'Sjökortsskiss — periskopobservationer i Hårsfjärden och vid Muskö',
+    image: periskopKartaAsset.url,
+    description: 'Sammanställning av rapporterade periskopobservationer med klockslag. Nattobservationer i S. Hårsfjärden (01.01, 01.20, 03.17, 03.32), tre observationer vid Musköbasen (07.15, 21.55, 22.16) och ett tätt kluster i Märsgarn/Vitsgarn mellan 09.20 och 14.40 — bl.a. fyra samtidiga observationer kl 12.46. Ytterligare en observation kl 22.12 österut. Klustrets täthet visar hur många vittnesrapporter som koncentrerades till ett litet område nära marinens egna anläggningar.',
+    classification: 'OFFENTLIG',
+    source: 'Sjökortsskiss via facebook.com/groups/ubatsjakt',
   },
 ];
 
