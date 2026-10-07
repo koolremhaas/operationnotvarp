@@ -18,7 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <HashRouter>
         <SiteHeader />
         <Routes>
           <Route path="/" element={<Index />} />
@@ -28,7 +28,7 @@ const App = () => (
           <Route path="/kallor" element={<SourcesPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
