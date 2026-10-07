@@ -42,8 +42,8 @@ export default function NauticalMap() {
     });
 
     // Dark base layer
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; CartoDB',
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png?key=cb1_4aob_1_e0422c8700b77ce0e92cf52c', {
+      attribution: '&copy; CARTO &copy; OpenStreetMap',
     }).addTo(map);
 
     // EMODnet Bathymetry — color-shaded depth (darker blue = deeper)
